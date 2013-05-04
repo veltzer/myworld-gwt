@@ -78,11 +78,11 @@ public class Gwtworld implements EntryPoint {
 			@Override
 			public void onSuccess(List<TbIdPerson> result) {
 				store.addAll(result);
-				personCombo.setEnabled(true);
 				ds.getDefaultPerson(new AsyncCallback<TbIdPerson>() {
 					@Override
 					public void onSuccess(TbIdPerson result) {
 						personCombo.setValue(result);
+						personCombo.setEnabled(true);
 					}
 					@Override
 					public void onFailure(Throwable caught) {
