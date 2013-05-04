@@ -6,3 +6,4 @@
 /*.war
 /.ant-targets-build.xml
 /test-classes
+/velocity.log
