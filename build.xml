@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE project>
-<project name="myworld" default="war" basedir=".">
+<project name="gwtworld" default="war" basedir=".">
 	<!-- Properties -->
 	<property file="build_local.properties"/>
 	<xmlproperty file="build_common_properties.xml" semanticAttributes="true"/>
