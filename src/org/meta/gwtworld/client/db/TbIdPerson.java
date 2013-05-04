@@ -1,4 +1,4 @@
-package org.meta.gwtworld.client.model;
+package org.meta.gwtworld.client.db;
 
 import java.io.Serializable;
 import javax.persistence.*;

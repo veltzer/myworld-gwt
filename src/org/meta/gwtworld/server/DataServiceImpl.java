@@ -12,9 +12,11 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.meta.gwtworld.client.DataService;
+import org.meta.gwtworld.client.db.TbDevice;
+import org.meta.gwtworld.client.db.TbIdPerson;
+import org.meta.gwtworld.client.db.TbLocation;
+import org.meta.gwtworld.client.db.TbWkWork;
 import org.meta.gwtworld.client.model.ListAndDefault;
-import org.meta.gwtworld.client.model.TbIdPerson;
-import org.meta.gwtworld.client.model.TbWkWork;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -37,15 +39,25 @@ public class DataServiceImpl extends RemoteServiceServlet implements
 		return tq.getResultList();
 	}
 	public <T> T getDefault(Class<T> cls) {
-		if(cls==TbIdPerson.class) {
+		if(cls==TbIdPerson.class || cls==TbLocation.class || cls==TbDevice.class) {
 			EntityManagerFactory factory=Persistence.createEntityManagerFactory("gwtworld");
 			EntityManager em=factory.createEntityManager();
 			CriteriaBuilder qb=em.getCriteriaBuilder();
 			CriteriaQuery<T> c=qb.createQuery(cls);
 			Root<T> p=c.from(cls);
-			Predicate condition1=qb.equal(p.get("firstname"), "Mark");
-			Predicate condition2=qb.equal(p.get("surname"), "Veltzer");
-			c.where(condition1,condition2);
+			if(cls==TbIdPerson.class) {
+					Predicate condition1=qb.equal(p.get("firstname"), "Mark");
+					Predicate condition2=qb.equal(p.get("surname"), "Veltzer");
+					c.where(condition1,condition2);
+			}
+			if(cls==TbLocation.class) {
+					Predicate condition=qb.equal(p.get("name"), "home");
+					c.where(condition);
+			}
+			if(cls==TbDevice.class) {
+					Predicate condition=qb.equal(p.get("slug"), "yes-maxhd");
+					c.where(condition);
+			}
 			TypedQuery<T> tq=em.createQuery(c);
 			List<T> l=tq.getResultList();
 			assert(l.size()==1);
@@ -62,6 +74,16 @@ public class DataServiceImpl extends RemoteServiceServlet implements
 	@Override
 	public ListAndDefault<TbWkWork> getTbWkWork() {
 		ListAndDefault<TbWkWork> res=new ListAndDefault<TbWkWork>(getAll(TbWkWork.class),getDefault(TbWkWork.class));
+		return res;
+	}
+	@Override
+	public ListAndDefault<TbDevice> getTbDevice() {
+		ListAndDefault<TbDevice> res=new ListAndDefault<TbDevice>(getAll(TbDevice.class),getDefault(TbDevice.class));
+		return res;
+	}
+	@Override
+	public ListAndDefault<TbLocation> getTbLocation() {
+		ListAndDefault<TbLocation> res=new ListAndDefault<TbLocation>(getAll(TbLocation.class),getDefault(TbLocation.class));
 		return res;
 	}
 	/* fake getAll to not connect to the database

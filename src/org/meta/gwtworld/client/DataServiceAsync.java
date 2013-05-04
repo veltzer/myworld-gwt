@@ -1,8 +1,10 @@
 package org.meta.gwtworld.client;
 
+import org.meta.gwtworld.client.db.TbDevice;
+import org.meta.gwtworld.client.db.TbIdPerson;
+import org.meta.gwtworld.client.db.TbLocation;
+import org.meta.gwtworld.client.db.TbWkWork;
 import org.meta.gwtworld.client.model.ListAndDefault;
-import org.meta.gwtworld.client.model.TbIdPerson;
-import org.meta.gwtworld.client.model.TbWkWork;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
@@ -12,4 +14,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 public interface DataServiceAsync {
 	void getTbIdPerson(AsyncCallback<ListAndDefault<TbIdPerson>> callback);
 	void getTbWkWork(AsyncCallback<ListAndDefault<TbWkWork>> callback);
+	void getTbDevice(AsyncCallback<ListAndDefault<TbDevice>> callback);
+	void getTbLocation(AsyncCallback<ListAndDefault<TbLocation>> callback);
 }

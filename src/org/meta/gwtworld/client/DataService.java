@@ -1,8 +1,10 @@
 package org.meta.gwtworld.client;
 
+import org.meta.gwtworld.client.db.TbDevice;
+import org.meta.gwtworld.client.db.TbIdPerson;
+import org.meta.gwtworld.client.db.TbLocation;
+import org.meta.gwtworld.client.db.TbWkWork;
 import org.meta.gwtworld.client.model.ListAndDefault;
-import org.meta.gwtworld.client.model.TbIdPerson;
-import org.meta.gwtworld.client.model.TbWkWork;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -14,4 +16,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface DataService extends RemoteService {
 	ListAndDefault<TbIdPerson> getTbIdPerson();
 	ListAndDefault<TbWkWork> getTbWkWork();
+	ListAndDefault<TbDevice> getTbDevice();
+	ListAndDefault<TbLocation> getTbLocation();
 }

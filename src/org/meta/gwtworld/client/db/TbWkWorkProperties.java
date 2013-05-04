@@ -1,4 +1,4 @@
-package org.meta.gwtworld.client.model;
+package org.meta.gwtworld.client.db;
 
 import com.google.gwt.editor.client.Editor.Path;
 import com.sencha.gxt.data.shared.LabelProvider;
@@ -10,6 +10,6 @@ public interface TbWkWorkProperties extends PropertyAccess<TbWkWork> {
 	ModelKeyProvider<TbWkWork> key();
 	
 	@Path("name")
-	LabelProvider<TbWkWork> fullNameLabel();
+	LabelProvider<TbWkWork> label();
 	
 }

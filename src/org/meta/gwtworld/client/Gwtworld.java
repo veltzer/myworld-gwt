@@ -2,11 +2,15 @@ package org.meta.gwtworld.client;
 
 import java.util.Date;
 
+import org.meta.gwtworld.client.db.TbDevice;
+import org.meta.gwtworld.client.db.TbDeviceProperties;
+import org.meta.gwtworld.client.db.TbIdPerson;
+import org.meta.gwtworld.client.db.TbIdPersonProperties;
+import org.meta.gwtworld.client.db.TbLocation;
+import org.meta.gwtworld.client.db.TbLocationProperties;
+import org.meta.gwtworld.client.db.TbWkWork;
+import org.meta.gwtworld.client.db.TbWkWorkProperties;
 import org.meta.gwtworld.client.model.ComboAsync;
-import org.meta.gwtworld.client.model.TbIdPerson;
-import org.meta.gwtworld.client.model.TbIdPersonProperties;
-import org.meta.gwtworld.client.model.TbWkWork;
-import org.meta.gwtworld.client.model.TbWkWorkProperties;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -61,14 +65,24 @@ public class Gwtworld implements EntryPoint {
 		panel.add(p);
 		
 		TbIdPersonProperties person_props = GWT.create(TbIdPersonProperties.class);
-		final ComboBox<TbIdPerson> personCombo=MyCombo.createCombo(person_props.key(), person_props.fullNameLabel(), ds);
+		final ComboBox<TbIdPerson> personCombo=MyCombo.createCombo(person_props.key(), person_props.label(), ds);
 	    ds.getTbIdPerson(new ComboAsync<TbIdPerson>(personCombo));
 		p.add(new FieldLabel(personCombo, "Person"), new VerticalLayoutData(1, -1));
 
 		TbWkWorkProperties work_props = GWT.create(TbWkWorkProperties.class);
-		final ComboBox<TbWkWork> workCombo=MyCombo.createCombo(work_props.key(), work_props.fullNameLabel(), ds);
+		final ComboBox<TbWkWork> workCombo=MyCombo.createCombo(work_props.key(), work_props.label(), ds);
 	    ds.getTbWkWork(new ComboAsync<TbWkWork>(workCombo));
 		p.add(new FieldLabel(workCombo, "Work"), new VerticalLayoutData(1, -1));
+
+		TbDeviceProperties device_props = GWT.create(TbDeviceProperties.class);
+		final ComboBox<TbDevice> deviceCombo=MyCombo.createCombo(device_props.key(), device_props.label(), ds);
+	    ds.getTbDevice(new ComboAsync<TbDevice>(deviceCombo));
+		p.add(new FieldLabel(deviceCombo, "Device"), new VerticalLayoutData(1, -1));
+		
+		TbLocationProperties loc_props = GWT.create(TbLocationProperties.class);
+		final ComboBox<TbLocation> locCombo=MyCombo.createCombo(loc_props.key(), loc_props.label(), ds);
+	    ds.getTbLocation(new ComboAsync<TbLocation>(locCombo));
+		p.add(new FieldLabel(locCombo, "Location"), new VerticalLayoutData(1, -1));
 		
 		final DateField df=new DateField();
 		df.setValue(new Date());
@@ -77,7 +91,7 @@ public class Gwtworld implements EntryPoint {
 		final TimeField tf=new TimeField();
 		tf.setValue(new Date());
 		p.add(new FieldLabel(tf,"Time"), new VerticalLayoutData(1, -1));
-	
+		
 		return panel;
 	}
 }
