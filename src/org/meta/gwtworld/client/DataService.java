@@ -1,8 +1,8 @@
 package org.meta.gwtworld.client;
 
-import java.util.List;
-
+import org.meta.gwtworld.client.model.ListAndDefault;
 import org.meta.gwtworld.client.model.TbIdPerson;
+import org.meta.gwtworld.client.model.TbWkWork;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -12,7 +12,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("DataService")
 public interface DataService extends RemoteService {
-	List<TbIdPerson> getPersons() throws IllegalArgumentException;
-	List<TbIdPerson> getAllPersons() throws IllegalArgumentException;
-	TbIdPerson getDefaultPerson();
+	ListAndDefault<TbIdPerson> getTbIdPerson();
+	ListAndDefault<TbWkWork> getTbWkWork();
 }

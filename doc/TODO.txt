@@ -1,7 +1,13 @@
 funtionality
 ============
 - finish the first form and make it work.
+	- add movies that I have already seen (with link to imdb).
 	- add datetime selection.
+	- add location selection with home as default.
+	- add device selection with yes max HD as default.
+	- add remark to the view.
+	
+	- finally do the commit and see that it works (commit pulp fiction two days ago).
 
 build system
 ============
