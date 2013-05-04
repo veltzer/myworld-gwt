@@ -1,9 +1,11 @@
 /war/WEB-INF/classes
 /war/WEB-INF/deploy
 /war/gwtworld
+/war/WEB-INF/.gitignore
 /gwt-unitCache
 /.gwt
 /*.war
 /.ant-targets-build.xml
 /test-classes
 /velocity.log
+/test-classes
