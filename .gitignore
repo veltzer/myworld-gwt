@@ -1,7 +1,8 @@
-war/WEB-INF/classes
-gwt-unitCache
-.gwt
-war/WEB-INF/deploy
-war/gwtworld
-*.war
-.ant-targets-build.xml
+/war/WEB-INF/classes
+/war/WEB-INF/deploy
+/war/gwtworld
+/gwt-unitCache
+/.gwt
+/*.war
+/.ant-targets-build.xml
+/test-classes
