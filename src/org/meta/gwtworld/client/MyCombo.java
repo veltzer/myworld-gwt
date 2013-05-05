@@ -16,7 +16,9 @@ public class MyCombo {
 		combo.setAllowBlank(false);
 		combo.setEnabled(false);
 		combo.setTypeAhead(true);
+		combo.setTypeAheadDelay(0);
 		combo.setAutoValidate(true);
+		combo.setValidationDelay(0);
 		return combo;
 	}
 		

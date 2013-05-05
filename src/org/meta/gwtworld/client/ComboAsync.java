@@ -12,8 +12,12 @@ public class ComboAsync<T> implements AsyncCallback<ListAndDefault<T>> {
 		this.combo=combo;
 	}
 	public void onSuccess(ListAndDefault<T> result) {
-		combo.getStore().addAll(result.list);
-		combo.setValue(result.def);
+		if(result.list!=null) {
+			combo.getStore().addAll(result.list);
+		}
+		if(result.def!=null) {
+			combo.setValue(result.def);
+		}
 		combo.setEnabled(true);
 	}
 	public void onFailure(Throwable caught) {
