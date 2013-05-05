@@ -11,11 +11,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.meta.gwtworld.client.DataService;
 import org.meta.gwtworld.client.db.TbDevice;
 import org.meta.gwtworld.client.db.TbIdPerson;
 import org.meta.gwtworld.client.db.TbLocation;
 import org.meta.gwtworld.client.db.TbWkWork;
+import org.meta.gwtworld.client.transfer.DataService;
 import org.meta.gwtworld.client.transfer.ListAndDefault;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;

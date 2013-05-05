@@ -10,6 +10,8 @@ import org.meta.gwtworld.client.db.TbLocation;
 import org.meta.gwtworld.client.db.TbLocationProperties;
 import org.meta.gwtworld.client.db.TbWkWork;
 import org.meta.gwtworld.client.db.TbWkWorkProperties;
+import org.meta.gwtworld.client.transfer.DataService;
+import org.meta.gwtworld.client.transfer.DataServiceAsync;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;

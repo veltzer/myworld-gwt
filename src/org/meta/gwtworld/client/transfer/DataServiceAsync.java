@@ -1,10 +1,9 @@
-package org.meta.gwtworld.client;
+package org.meta.gwtworld.client.transfer;
 
 import org.meta.gwtworld.client.db.TbDevice;
 import org.meta.gwtworld.client.db.TbIdPerson;
 import org.meta.gwtworld.client.db.TbLocation;
 import org.meta.gwtworld.client.db.TbWkWork;
-import org.meta.gwtworld.client.transfer.ListAndDefault;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

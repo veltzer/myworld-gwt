@@ -1,5 +1,7 @@
 package org.meta.gwtworld.client;
 
+import org.meta.gwtworld.client.transfer.DataServiceAsync;
+
 import com.sencha.gxt.data.shared.LabelProvider;
 import com.sencha.gxt.data.shared.ListStore;
 import com.sencha.gxt.data.shared.ModelKeyProvider;
