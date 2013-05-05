@@ -1,4 +1,4 @@
-package org.meta.gwtworld.client.model;
+package org.meta.gwtworld.client.transfer;
 
 import java.io.Serializable;
 import java.util.List;

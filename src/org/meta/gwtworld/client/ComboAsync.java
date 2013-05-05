@@ -1,4 +1,6 @@
-package org.meta.gwtworld.client.model;
+package org.meta.gwtworld.client;
+
+import org.meta.gwtworld.client.transfer.ListAndDefault;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.sencha.gxt.widget.core.client.form.ComboBox;
