@@ -1,3 +1,15 @@
+TODO:
+=====
+- reduce the size of the folder when it is clean (get the java via some procedure
+	and not via storing it in the source code).
+	the folders in questions are:
+		lib
+		war/WEB-INF/lib
+- get ridd of the password hardcoded in my build.xml file and move it to local (~/.gwtworld).
+- store this one on github.
+- ant always rebuilds everything. whats that about?
+- get this running on GAE.
+
 funtionality
 ============
 - finish the first form and make it work.
@@ -12,6 +24,5 @@ funtionality
 build system
 ============
 - get ridd of the ant build warnings and errors.
-- get ridd of the password hardcoded in my build.xml file and move it to local (~/something).
 - add maven support to fetch the third party jars.
 	(I have a link to maven with gwt in my links file).
