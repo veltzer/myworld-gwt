@@ -1,0 +1,3 @@
+first make sure your tomcat is running
+	(you need to configure tomcat properly with user/password,
+	large war file uploads and more).

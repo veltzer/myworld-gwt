@@ -6,12 +6,14 @@ TODO:
 		lib
 		war/WEB-INF/lib
 - get ridd of the password hardcoded in my build.xml file and move it to local (~/.gwtworld).
+- get ridd of the password and user hardcoded in src/META-INF/persistence.xml
+	and more them to ~/.gwtworld.
 - store this one on github.
 - ant always rebuilds everything. whats that about?
 - get this running on GAE.
 
-funtionality
-============
+functionality
+=============
 - finish the first form and make it work.
 	- add movies that I have already seen (with link to imdb).
 	- add datetime selection.

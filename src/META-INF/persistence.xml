@@ -5,11 +5,11 @@
 		<class>org.meta.gwtworld.client.db.TbWkWork</class>
 		<class>org.meta.gwtworld.client.db.TbDevice</class>
 		<class>org.meta.gwtworld.client.db.TbLocation</class>
-	    <properties>
-		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/myworld"/>
-		    <property name="javax.persistence.jdbc.user" value="mark"/>
-		    <property name="javax.persistence.jdbc.password" value=""/>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/myworld"/>
+			<property name="javax.persistence.jdbc.user" value="mark"/>
+			<property name="javax.persistence.jdbc.password" value=""/>
 		</properties>
 	</persistence-unit>
 </persistence>
