@@ -111,9 +111,14 @@
 	/>
 
 	<!-- Targets -->
+	<!-- loading our ivy-settigns file, with our own resolvers declarations :) -->
+	<ivy:settings file="ivy-settings.xml" id="ivy.instance" />
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
+		<!--
 		<delete dir="war/WEB-INF/lib" failonerror="no"/>
 		<ivy:resolve refresh="true" showprogress="true"/>
+		<ivy:retrieve sync="true" symlink="true" pattern="lib/[artifact].[ext]"/>
+		-->
 		<ivy:retrieve sync="true" symlink="true"/>
 	</target>
 	<target name="ivy_retrieve_local" description="retrieve dependencies with ivy from local">
