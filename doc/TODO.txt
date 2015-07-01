@@ -1,5 +1,7 @@
 TODO:
 =====
+- configure the app to use only https.
+	configure tomcat to only use https (document how to do this).
 - reduce the size of the folder when it is clean (get the java jars via some procedure
 	and not via storing it in the source code).
 	the folders in questions are:

@@ -5,6 +5,15 @@
 	<property file="build_local.properties"/>
 	<xmlproperty file="build_common_properties.xml" semanticAttributes="true"/>
 
+	<!-- Check environment variables -->
+	<property environment="env"/>
+	<fail unless="env.ANT_HOME" message="ANT_HOME not set"/>
+	<fail unless="env.TOMCAT_HOME" message="TOMCAT_HOME not set"/>
+	<fail unless="env.IVY_HOME" message="IVY_HOME not set"/>
+	<fail unless="env.JAVA_HOME" message="JAVA_HOME not set"/>
+	<fail unless="env.M2_HOME" message="M2_HOME not set"/>
+	<fail unless="env.GWT_HOME" message="GWT_HOME not set"/>
+
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />
 	<property name="gwt.appname" value="gwtworld" />
@@ -13,11 +22,11 @@
 	<property name="gwt.warfile" value="${gwt.appname}.war" />
 
 	<!-- Paths -->
-	<path id="project.class.path">
+	<path id="runtime.class.path">
 		<pathelement location="war/WEB-INF/classes"/>
 		<fileset dir="war/WEB-INF/lib" includes="**/*.jar"/>
 	</path>
-	<path id="ant-jars">
+	<path id="ant.class.path">
 		<fileset dir="lib">
 			<include name="catalina-ant.jar"/>
 			<include name="tomcat-coyote.jar"/>
@@ -26,18 +35,27 @@
 	</path>
 
 	<!-- New tasks -->
-	<taskdef name="tc-deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="ant-jars"/>
-	<taskdef name="tc-list" classname="org.apache.catalina.ant.ListTask" classpathref="ant-jars"/>
-	<taskdef name="tc-reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="ant-jars"/>
-	<taskdef name="tc-findleaks" classname="org.apache.catalina.ant.FindLeaksTask" classpathref="ant-jars"/>
-	<taskdef name="tc-resources" classname="org.apache.catalina.ant.ResourcesTask" classpathref="ant-jars"/>
-	<taskdef name="tc-start" classname="org.apache.catalina.ant.StartTask" classpathref="ant-jars"/>
-	<taskdef name="tc-stop" classname="org.apache.catalina.ant.StopTask" classpathref="ant-jars"/>
-	<taskdef name="tc-undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="ant-jars"/>
-	<taskdef name="tc-validate" classname="org.apache.catalina.ant.ValidatorTask" classpathref="ant-jars"/>
-	<taskdef name="tc-serverinfo" classname="org.apache.catalina.ant.ServerinfoTask" classpathref="ant-jars"/>
+	<taskdef name="tc-deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-list" classname="org.apache.catalina.ant.ListTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-findleaks" classname="org.apache.catalina.ant.FindLeaksTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-resources" classname="org.apache.catalina.ant.ResourcesTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-start" classname="org.apache.catalina.ant.StartTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-stop" classname="org.apache.catalina.ant.StopTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-validate" classname="org.apache.catalina.ant.ValidatorTask" classpathref="ant.class.path"/>
+	<taskdef name="tc-serverinfo" classname="org.apache.catalina.ant.ServerinfoTask" classpathref="ant.class.path"/>
 
 	<!-- Targets -->
+	<target name="fetch" description="Fetch jars to lib">
+		<mkdir dir="lib"/>
+		<copy file="${env.TOMCAT_HOME}/lib/catalina-ant.jar" tofile="lib/catalina-ant.jar"/>
+		<copy file="${env.TOMCAT_HOME}/lib/tomcat-coyote.jar" tofile="lib/tomcat-coyote.jar"/>
+		<copy file="${env.TOMCAT_HOME}/lib/tomcat-util.jar" tofile="lib/tomcat-util.jar"/>
+		<copy file="${env.GWT_HOME}/lib/gwt-dev.jar" tofile="lib/gwt-dev.jar"/>
+		<copy file="${env.GWT_HOME}/lib/gwt-user.jar" tofile="lib/gwt-user.jar"/>
+		<copy file="${env.GWT_HOME}/lib/gwt-servlet.jar" tofile="lib/gwt-servlet.jar"/>
+	</target>
 	<target name="javac" description="Compile java source to bytecode">
 		<mkdir dir="war/WEB-INF/classes"/>
 		<javac srcdir="src" includes="**" encoding="utf-8"
@@ -45,9 +63,9 @@
 			destdir="war/WEB-INF/classes"
 			source="1.7" target="1.7" nowarn="false"
 			debug="true" debuglevel="lines,vars,source">
-			<classpath refid="project.class.path"/>
+			<classpath refid="runtime.class.path"/>
 		</javac>
-		<!-- copy non sources (METAINF,...) to target -->
+		<!-- copy non sources (META-INF,...) to target -->
 		<copy todir="war/WEB-INF/classes">
 			<fileset dir="src" excludes="**/*.java"/>
 		</copy>
@@ -56,7 +74,7 @@
 		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
 			<classpath>
 				<pathelement location="src"/>
-				<path refid="project.class.path"/>
+				<path refid="runtime.class.path"/>
 			</classpath>
 			<!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
 			<jvmarg value="-Xmx256M"/>
@@ -71,7 +89,7 @@
 		<java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode">
 			<classpath>
 				<pathelement location="src"/>
-				<path refid="project.class.path"/>
+				<path refid="runtime.class.path"/>
 			</classpath>
 			<jvmarg value="-Xmx256M"/>
 			<arg value="-startupUrl"/>
@@ -92,6 +110,7 @@
 		<delete dir="war/WEB-INF/classes" failonerror="false" verbose="true"/>
 		<delete dir="war/WEB-INF/deploy" failonerror="false" verbose="true"/>
 		<delete dir="war/${gwt.appname}" failonerror="false" verbose="true"/>
+		<delete dir="lib" failonerror="false" verbose="true"/>
 		<delete dir="gwt-unitCache" failonerror="false" verbose="true"/>
 		<delete dir="test-classes" failonerror="false" verbose="true"/>
 		<delete file="${gwt.warfile}" failonerror="false" verbose="true"/>

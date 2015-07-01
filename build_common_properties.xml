@@ -39,14 +39,11 @@
 	<db>
 		<version>5.0.38-Debian_3-log</version>
 		<driver>com.mysql.jdbc.Driver</driver>
-		<driver_jar>elib/mysql-connector-java-5.0.5-bin.jar</driver_jar>
-		<name>app</name>
+		<driver_jar>war/WEB-INF/lib/mysql-connector-java-5.1.16.jar</driver_jar>
+		<name>myworld</name>
 		<url>jdbc:mysql://localhost:3306/${app.db.name}</url>
-		<curl>jdbc:mysql://localhost:3306/mysql</curl>
-		<durl>${app.db.url}</durl>
-		<dcurl>${app.db.curl}</dcurl>
-		<user>wellnet</user>
-		<pass>b3w3lln3t</pass>
+		<user>mark</user>
+		<pass>fVgyzpYy5N</pass>
 		<admin_user>root</admin_user>
 		<admin_pass></admin_pass>
 	</db>
