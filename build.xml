@@ -26,25 +26,78 @@
 		<pathelement location="war/WEB-INF/classes"/>
 		<fileset dir="war/WEB-INF/lib" includes="**/*.jar"/>
 	</path>
+	<available property="catalina-ant.file.exists" file="lib/catalina-ant.jar"/>
+	<available property="tomcat-coyote.file.exists" file="lib/tomcat-coyote.jar"/>
+	<available property="tomcat-util.file.exists" file="lib/tomcat-util.jar"/>
 	<path id="ant.class.path">
-		<fileset dir="lib">
-			<include name="catalina-ant.jar"/>
-			<include name="tomcat-coyote.jar"/>
-			<include name="tomcat-util.jar"/>
+		<fileset dir="lib" erroronmissingdir="false">
+			<include name="catalina-ant.jar" if="catalina-ant.file.exists"/>
+			<include name="tomcat-coyote.jar" if="tomcat-coyote.file.exists"/>
+			<include name="tomcat-util.jar" if="tomcat-util.file.exists"/>
 		</fileset>
 	</path>
 
 	<!-- New tasks -->
-	<taskdef name="tc-deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-list" classname="org.apache.catalina.ant.ListTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-findleaks" classname="org.apache.catalina.ant.FindLeaksTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-resources" classname="org.apache.catalina.ant.ResourcesTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-start" classname="org.apache.catalina.ant.StartTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-stop" classname="org.apache.catalina.ant.StopTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-validate" classname="org.apache.catalina.ant.ValidatorTask" classpathref="ant.class.path"/>
-	<taskdef name="tc-serverinfo" classname="org.apache.catalina.ant.ServerinfoTask" classpathref="ant.class.path"/>
+	<taskdef
+		name="tc-deploy"
+		classname="org.apache.catalina.ant.DeployTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-list"
+		classname="org.apache.catalina.ant.ListTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-reload"
+		classname="org.apache.catalina.ant.ReloadTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-findleaks"
+		classname="org.apache.catalina.ant.FindLeaksTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-resources"
+		classname="org.apache.catalina.ant.ResourcesTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-start"
+		classname="org.apache.catalina.ant.StartTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-stop"
+		classname="org.apache.catalina.ant.StopTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-undeploy"
+		classname="org.apache.catalina.ant.UndeployTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-validate"
+		classname="org.apache.catalina.ant.ValidatorTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
+	<taskdef
+		name="tc-serverinfo"
+		classname="org.apache.catalina.ant.ServerinfoTask"
+		classpathref="ant.class.path"
+		onerror="report"
+	/>
 
 	<!-- Targets -->
 	<target name="fetch" description="Fetch jars to lib">
@@ -52,9 +105,9 @@
 		<copy file="${env.TOMCAT_HOME}/lib/catalina-ant.jar" tofile="lib/catalina-ant.jar"/>
 		<copy file="${env.TOMCAT_HOME}/lib/tomcat-coyote.jar" tofile="lib/tomcat-coyote.jar"/>
 		<copy file="${env.TOMCAT_HOME}/lib/tomcat-util.jar" tofile="lib/tomcat-util.jar"/>
-		<copy file="${env.GWT_HOME}/lib/gwt-dev.jar" tofile="lib/gwt-dev.jar"/>
-		<copy file="${env.GWT_HOME}/lib/gwt-user.jar" tofile="lib/gwt-user.jar"/>
-		<copy file="${env.GWT_HOME}/lib/gwt-servlet.jar" tofile="lib/gwt-servlet.jar"/>
+		<copy file="${env.GWT_HOME}/gwt-dev.jar" tofile="lib/gwt-dev.jar"/>
+		<copy file="${env.GWT_HOME}/gwt-user.jar" tofile="lib/gwt-user.jar"/>
+		<copy file="${env.GWT_HOME}/gwt-servlet.jar" tofile="lib/gwt-servlet.jar"/>
 	</target>
 	<target name="javac" description="Compile java source to bytecode">
 		<mkdir dir="war/WEB-INF/classes"/>
