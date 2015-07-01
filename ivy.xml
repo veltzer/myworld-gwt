@@ -1,0 +1,26 @@
+<ivy-module version="2.0">
+	<!--
+		to find more entries to put here use:
+			http://mvnrepository.com/
+			http://search.maven.org/
+	-->
+	<info organisation="org.meta" module="gwtworld"/>
+	<dependencies>
+		<dependency org="com.google.gwt" name="gwt-user" rev="latest.release"/>
+		<dependency org="com.google.gwt" name="gwt-servlet" rev="latest.release"/>
+		<dependency org="com.google.gwt" name="gwt-dev" rev="latest.release"/>
+		<dependency org="com.sencha.gxt" name="gxt" rev="3.1.1"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpars" rev="latest.release"/>
+		<dependency org="org.eclipse.persistence" name="eclipselink" rev="latest.release"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa.modelgen.processor" rev="latest.release"/>
+		<!--
+		<dependency org="mysql" name="mysql-connector-java" rev="latest.release"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.release"/>
+		<dependency org="javax.mail" name="mail" rev="latest.release"/>
+		<dependency org="javax.mail" name="javax.mail-api" rev="latest.release"/>
+		<dependency org="javax.persistence" name="persistence-api" rev="latest.release"/>
+		<dependency org="org.hibernate.javax.persistence" name="hibernate-jpa-2.0-api" rev="latest.release"/>
+		<dependency org="com.sun.xml.bind" name="jaxb-impl" rev="latest.release"/>
+		-->
+	</dependencies>
+</ivy-module>
