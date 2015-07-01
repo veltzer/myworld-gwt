@@ -13,6 +13,7 @@
 	<fail unless="env.JAVA_HOME" message="JAVA_HOME not set"/>
 	<fail unless="env.M2_HOME" message="M2_HOME not set"/>
 	<fail unless="env.GWT_HOME" message="GWT_HOME not set"/>
+	<fail unless="env.GXT_HOME" message="GXT_HOME not set"/>
 
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />
@@ -100,14 +101,24 @@
 	/>
 
 	<!-- Targets -->
+	<target name="empty" description="Do nothing">
+	</target>
 	<target name="fetch" description="Fetch jars to lib">
 		<mkdir dir="lib"/>
-		<copy file="${env.TOMCAT_HOME}/lib/catalina-ant.jar" tofile="lib/catalina-ant.jar"/>
-		<copy file="${env.TOMCAT_HOME}/lib/tomcat-coyote.jar" tofile="lib/tomcat-coyote.jar"/>
-		<copy file="${env.TOMCAT_HOME}/lib/tomcat-util.jar" tofile="lib/tomcat-util.jar"/>
-		<copy file="${env.GWT_HOME}/gwt-dev.jar" tofile="lib/gwt-dev.jar"/>
-		<copy file="${env.GWT_HOME}/gwt-user.jar" tofile="lib/gwt-user.jar"/>
-		<copy file="${env.GWT_HOME}/gwt-servlet.jar" tofile="lib/gwt-servlet.jar"/>
+		<copy file="${env.TOMCAT_HOME}/lib/catalina-ant.jar" todir="lib"/>
+		<copy file="${env.TOMCAT_HOME}/lib/tomcat-coyote.jar" todir="lib"/>
+		<copy file="${env.TOMCAT_HOME}/lib/tomcat-util.jar" todir="lib"/>
+		<copy file="${env.GWT_HOME}/gwt-dev.jar" todir="lib"/>
+		<copy file="${env.GWT_HOME}/gwt-user.jar" todir="lib"/>
+		<copy file="${env.GWT_HOME}/gwt-servlet.jar" todir="lib"/>
+		<mkdir dir="war/WEB-INF/lib"/>
+		<copy file="${env.GWT_HOME}/gwt-dev.jar" todir="war/WEB-INF/lib"/>
+		<copy file="${env.GWT_HOME}/gwt-user.jar" todir="war/WEB-INF/lib"/>
+		<copy file="${env.GWT_HOME}/gwt-servlet.jar" todir="war/WEB-INF/lib"/>
+		<copy file="${env.GWT_HOME}/gwt-servlet-deps.jar" todir="war/WEB-INF/lib"/>
+		<copy file="${env.GWT_HOME}/validation-api-1.0.0.GA.jar" todir="war/WEB-INF/lib"/>
+		<copy file="${env.GWT_HOME}/validation-api-1.0.0.GA-sources.jar" todir="war/WEB-INF/lib"/>
+		<copy file="${env.GXT_HOME}/gxt.jar" todir="war/WEB-INF/lib"/>
 	</target>
 	<target name="javac" description="Compile java source to bytecode">
 		<mkdir dir="war/WEB-INF/classes"/>
@@ -164,6 +175,7 @@
 		<delete dir="war/WEB-INF/deploy" failonerror="false" verbose="true"/>
 		<delete dir="war/${gwt.appname}" failonerror="false" verbose="true"/>
 		<delete dir="lib" failonerror="false" verbose="true"/>
+		<delete dir="war/WEB-INF/lib" failonerror="false" verbose="true"/>
 		<delete dir="gwt-unitCache" failonerror="false" verbose="true"/>
 		<delete dir="test-classes" failonerror="false" verbose="true"/>
 		<delete file="${gwt.warfile}" failonerror="false" verbose="true"/>
