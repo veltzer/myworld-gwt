@@ -281,4 +281,11 @@
 	</target>
 	<target name="remote-redeploy" depends="war, remote-undeploy, remote-deploy" description="Redeploy the app">
 	</target>
+	<target name="echoproperties" depends="" description="echo all properties (for debugging puposes)">
+		<echoproperties>
+			<propertyset>
+				<propertyref prefix="app."/>
+			</propertyset>
+		</echoproperties>
+	</target>
 </project>
