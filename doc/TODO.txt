@@ -1,7 +1,10 @@
 TODO:
 =====
+- make sure that eclipse still works right with all of the recent
+	changes.
 - configure the app to use only https.
 	configure tomcat to only use https (document how to do this).
+- add login to the application with users and passwords.
 - get ridd of the password hardcoded in my build.xml file and move it to local (~/.gwtworld).
 - get ridd of the password and user hardcoded in src/META-INF/persistence.xml
 	and more them to ~/.gwtworld.
