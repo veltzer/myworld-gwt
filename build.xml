@@ -6,10 +6,6 @@
 	basedir="."
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 >
-	<!-- Properties -->
-	<property file="build_local.properties"/>
-	<xmlproperty file="build_common_properties.xml" semanticAttributes="true"/>
-
 	<!-- Check environment variables -->
 	<property environment="env"/>
 	<fail unless="env.ANT_HOME" message="ANT_HOME not set"/>
@@ -19,6 +15,10 @@
 	<fail unless="env.M2_HOME" message="M2_HOME not set"/>
 	<fail unless="env.GWT_HOME" message="GWT_HOME not set"/>
 	<fail unless="env.GXT_HOME" message="GXT_HOME not set"/>
+
+	<!-- Properties -->
+	<xmlproperty file="${env.HOME}/.build_common_properties.xml" semanticAttributes="true"/>
+	<xmlproperty file="build_common_properties.xml" semanticAttributes="true"/>
 
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />

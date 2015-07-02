@@ -12,7 +12,7 @@
 		</output>
 	</test>
 	<compile>
-		<java_version>1.5</java_version>
+		<java_version>1.7</java_version>
 		<javadoc>
 			<dir location="${basedir}/javadoc"/>
 		</javadoc>
@@ -37,21 +37,21 @@
 		</temp>
 	</compile>
 	<db>
-		<version>5.0.38-Debian_3-log</version>
+		<version>5.6.24-0ubuntu2 (Ubuntu)</version>
 		<driver>com.mysql.jdbc.Driver</driver>
-		<driver_jar>war/WEB-INF/lib/mysql-connector-java-5.1.16.jar</driver_jar>
+		<driver_jar>lib/runtime/mysql-connector-java-jar.jar</driver_jar>
 		<name>myworld</name>
 		<url>jdbc:mysql://localhost:3306/${app.db.name}</url>
-		<user>mark</user>
-		<pass>fVgyzpYy5N</pass>
-		<admin_user>root</admin_user>
-		<admin_pass></admin_pass>
+		<user>XXX</user>
+		<pass>XXX</pass>
+		<admin_user>XXX</admin_user>
+		<admin_pass>XXX</admin_pass>
 	</db>
 	<runtime>
 		<url>http://localhost:8080/manager/text</url>
 		<path>/gwtworld</path>
-		<username>mark</username>
-		<password>mz71p5iq</password>
+		<username>XXX</username>
+		<password>XXX</password>
 		<tomcat_home>/home/mark/install/apache-tomcat-7.0.39</tomcat_home>
 		<webapps_home>${app.runtime.tomcat_home}/webapps</webapps_home>
 		<bootstrap>${app.runtime.tomcat_home}/bin/bootstrap.jar</bootstrap>
