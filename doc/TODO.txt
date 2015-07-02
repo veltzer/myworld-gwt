@@ -1,16 +1,19 @@
-TODO:
-=====
+now
+===
+???
+
+environment
+===========
 - make sure that eclipse still works right with all of the recent
 	changes.
 - configure the app to use only https.
 	configure tomcat to only use https (document how to do this).
-- add login to the application with users and passwords.
-- get ridd of the password hardcoded in my build.xml file and move it to local (~/.gwtworld).
-- get ridd of the password and user hardcoded in src/META-INF/persistence.xml
-	and more them to ~/.gwtworld.
 - store this one on github.
-- ant always rebuilds everything. whats that about?
-- get this running on GAE.
+- get this app running on GAE (google app engine).
+- get this app running on a remote instance of tomcat.
+- do a script that automagically configures tomcat for the needs of this app.
+	(python script that adds me as admin of the tomcat with the right user/password,
+	that increases the size of maximum upload and more).
 
 functionality
 =============
@@ -25,6 +28,12 @@ functionality
 
 build system
 ============
+- ant always rebuilds everything. whats that about?
 - get ridd of the ant build warnings and errors.
-- add maven support to fetch the third party jars.
-	(I have a link to maven with gwt in my links file).
+
+code
+====
+- add login to the application with users and passwords.
+- get ridd of the password hardcoded in my build.xml file and move it to local (~/.gwtworld).
+- get ridd of the password and user hardcoded in src/META-INF/persistence.xml
+	and more them to ~/.gwtworld.
