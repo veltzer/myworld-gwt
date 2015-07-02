@@ -3,12 +3,11 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" output="test-classes" path="test"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/WEB"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/OUTER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EclipseLink 2.4.1 - Juno">
-		<attributes>
-			<attribute name="owner.project.facets" value="jpt.jpa"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ANTBUILD"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ANTEXTENSIONS"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ECLIPSE"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/RUMTIME"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/TEST"/>
+	<classpathentry kind="var" path="ECLIPSE_HOME"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
