@@ -3,6 +3,8 @@ now
 
 environment
 ===========
+- do a bash script that I should source before starting to work on
+	this project (instead of having the code in ~/.bashrc).
 - make sure that eclipse still works right with all of the recent
 	changes.
 - configure the app to use only https.
