@@ -1,6 +1,5 @@
 TODO:
 =====
-- get the application to work again with minimum jars and minimum size.
 - configure the app to use only https.
 	configure tomcat to only use https (document how to do this).
 - get ridd of the password hardcoded in my build.xml file and move it to local (~/.gwtworld).

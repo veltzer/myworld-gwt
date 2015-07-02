@@ -5,23 +5,37 @@
 			http://search.maven.org/
 	-->
 	<info organisation="org.meta" module="gwtworld"/>
+	<configurations>
+		<conf name="runtime" description="only what we need at runtime"/>
+		<conf name="antbuild" extends="runtime" description="what we need at ant build time"/>
+		<conf name="antextensions" description="what we use to extend ant"/>
+		<conf name="test" extends="antbuild" description="testing our app"/>
+		<conf name="eclipse" description="jars that eclipse needs to work"/>
+	</configurations>
 	<dependencies>
+		<dependency org="com.google.gwt" name="gwt-user" rev="2.6.1" conf="antbuild->default"/>
+		<dependency org="com.google.gwt" name="gwt-dev" rev="2.6.1" conf="antbuild->default"/>
+		<dependency org="com.google.gwt" name="gwt-servlet" rev="2.6.1" conf="runtime->default"/>
+		<dependency org="com.google.web.bindery" name="requestfactory-client" rev="2.6.1" conf="runtime->default"/>
+		<dependency org="com.sencha.gxt" name="gxt" rev="latest.release" conf="runtime->default"/>
+		<dependency org="org.apache.tomcat" name="tomcat-catalina-ant" rev="latest.release" conf="antextensions->default"/>
+		<dependency org="org.apache.tomcat" name="tomcat-coyote" rev="latest.release" conf="antextensions->default"/>
+		<dependency org="org.apache.tomcat" name="tomcat-util" rev="latest.release" conf="antextensions->default"/>
+		<dependency org="mysql" name="mysql-connector-java" rev="latest.release" conf="runtime->default;eclipse->default"/>
+		<dependency org="org.eclipse.persistence" name="javax.persistence" rev="latest.release" conf="runtime->default"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.release" conf="runtime->default"/>
 		<!--
-		<dependency org="com.google.gwt" name="gwt-user" rev="latest.release"/>
-		<dependency org="com.google.gwt" name="gwt-servlet" rev="latest.release"/>
-		<dependency org="com.google.gwt" name="gwt-dev" rev="latest.release"/>
-		<dependency org="com.sencha.gxt" name="gxt" rev="3.1.1"/>
+		<dependency org="javax.validation" name="validation-api" rev="latest.release" conf="runtime->default,sources"/>
+		<dependency org="javax.persistence" name="persistence-api" rev="latest.release" conf="runtime->default"/>
+		<dependency org="com.google.web.bindery" name="requestfactory" rev="2.6.0" conf="runtime->default"/>
+		<dependency org="com.googlecode.gwt-validation" name="gwt-validation" rev="latest.release" conf="antbuild->default"/>
 		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpars" rev="latest.release"/>
 		<dependency org="org.eclipse.persistence" name="eclipselink" rev="latest.release"/>
 		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa.modelgen.processor" rev="latest.release"/>
-		<dependency org="mysql" name="mysql-connector-java" rev="latest.release"/>
-		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.release"/>
 		<dependency org="javax.mail" name="mail" rev="latest.release"/>
 		<dependency org="javax.mail" name="javax.mail-api" rev="latest.release"/>
-		<dependency org="javax.persistence" name="persistence-api" rev="latest.release"/>
 		<dependency org="org.hibernate.javax.persistence" name="hibernate-jpa-2.0-api" rev="latest.release"/>
 		<dependency org="com.sun.xml.bind" name="jaxb-impl" rev="latest.release"/>
-		-->
 		<dependency org="com.google.gwt" name="gwt-servlet" rev="2.4.0" />
 		<dependency org="com.google.gwt" name="gwt-user" rev="2.4.0" />
 		<dependency org="com.google.gwt" name="gwt-dev" rev="2.4.0" />
@@ -33,5 +47,6 @@
 		<dependency org="junit" name="junit" rev="4.10" />
 		<dependency org="com.googlecode.objectify" name="objectify" rev="3.0" />
 		<dependency org="org.eclipse.persistence" name="javax.persistence" rev="latest.release" />
+		-->
 	</dependencies>
 </ivy-module>
