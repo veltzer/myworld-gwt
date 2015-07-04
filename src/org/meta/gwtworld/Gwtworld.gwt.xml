@@ -7,8 +7,12 @@
   "http://google-web-toolkit.googlecode.com/svn/tags/2.5.1/distro-source/core/src/gwt-module.dtd">
 <module rename-to='gwtworld'>
   <inherits name='com.sencha.gxt.ui.GXT'/>
+
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User'/>
+  
+  <!-- GXT Stylesheet -->
+  <stylesheet src="reset.css" /> 
 
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
@@ -19,7 +23,10 @@
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 
   <!-- Other module inherits                                      -->
-
+  <inherits name='com.sencha.gxt.theme.blue.Blue'/>
+  <!--
+  <inherits name='com.sencha.gxt.theme.neptune.Theme' />
+  -->
   <!-- Specify the app entry point class.                         -->
   <entry-point class='org.meta.gwtworld.client.Gwtworld'/>
 

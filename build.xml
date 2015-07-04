@@ -202,6 +202,16 @@
 		<delete file=".ant-targets-build.xml" failonerror="false" verbose="true"/>
 		<delete dir=".gwt" failonerror="false" verbose="true"/>
 	</target>
+	<target name="eclipse_clean" description="eclipse clean">
+		<delete dir="war/WEB-INF/classes" failonerror="false" verbose="true"/>
+		<delete dir="war/WEB-INF/deploy" failonerror="false" verbose="true"/>
+		<delete dir="war/${gwt.appname}" failonerror="false" verbose="true"/>
+		<delete dir="gwt-unitCache" failonerror="false" verbose="true"/>
+		<delete dir="test-classes" failonerror="false" verbose="true"/>
+		<delete file="${gwt.warfile}" failonerror="false" verbose="true"/>
+		<delete file=".ant-targets-build.xml" failonerror="false" verbose="true"/>
+		<delete dir=".gwt" failonerror="false" verbose="true"/>
+	</target>
 
 	<!-- remote tasks -->
 	<target name="remote-deploy" depends="" description="Install web application">

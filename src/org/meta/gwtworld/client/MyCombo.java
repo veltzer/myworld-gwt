@@ -21,5 +21,4 @@ public class MyCombo {
 		combo.setValidationDelay(0);
 		return combo;
 	}
-		
 }
