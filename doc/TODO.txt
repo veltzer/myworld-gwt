@@ -1,5 +1,11 @@
 now
 ===
+use gwt native to build a new app.
+	try to get to something usable.
+	do this using version 2.7.0.
+try to use gwt-bootstrap, vaadin or the like (mgwt)
+	to enhance the widget set (but only
+	if you need it).
 
 environment
 ===========
