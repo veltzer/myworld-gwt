@@ -164,6 +164,12 @@
 			<arg line="-strict"/>
 			<arg line="${gwt.args}"/>
 			<arg value="${gwt.appxml}"/>
+			<!-- optimize the speed of the compilation -->
+			<arg line="-localWorkers"/>
+			<arg line="8"/>
+			<arg line="-draftCompile"/>
+			<arg line="-optimize"/>
+			<arg line="0"/>
 		</java>
 		<!--
 			<arg line="-logLevel"/>
