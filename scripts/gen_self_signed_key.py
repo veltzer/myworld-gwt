@@ -51,7 +51,9 @@ Here is the reference from keytool(1):
 CN=Mark Smith, OU=Java, O=Oracle, L=Cupertino, S=California, C=US
 '''
 opt_data={
-	'cn': 'Mark Veltzer',
+	# this is the name of the host for which you want the certificate
+	# it must be identical to the name that you will access (e.g. https://localhost:8443/...).
+	'cn': 'localhost',
 	'ou': 'WebApps',
 	'o': 'Meta',
 	'l': 'Gush-Dan',
