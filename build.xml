@@ -64,7 +64,7 @@
 	<!-- Targets -->
 	<!-- loading our ivy-settigns file, with our own resolvers declarations :) -->
 	<ivy:settings file="ivy-settings.xml" id="ivy.instance" />
-	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
+	<target name="ivy-retrieve" description="retrieve dependencies with ivy">
 		<!--
 		<ivy:resolve refresh="true" showprogress="true"/>
 		<ivy:retrieve sync="true" symlink="true" pattern="lib/[artifact].[ext]"/>
@@ -73,14 +73,14 @@
 		-->
 		<ivy:retrieve sync="true" symlink="true" pattern="lib/[conf]/[artifact]-[type].[ext]"/>
 	</target>
-	<target name="ivy_retrieve_local" description="retrieve dependencies with ivy from local">
+	<target name="ivy-retrieve_local" description="retrieve dependencies with ivy from local">
 		<ivy:resolve useCacheOnly="true" showprogress="true"/>
 		<ivy:retrieve sync="true" symlink="true"/>
 	</target>
-	<target name="ivy_cleancache" depends="" description="purge ivy cache">
+	<target name="ivy-cleancache" depends="" description="purge ivy cache">
 		<ivy:cleancache/>
 	</target>
-	<target name="ivy_clean" depends="" description="clean all stuff braught by ivy">
+	<target name="ivy-clean" depends="" description="clean all stuff braught by ivy">
 		<delete dir="lib" failonerror="false" verbose="true"/>
 	</target>
 	<target name="empty" description="Do nothing">
@@ -194,48 +194,48 @@
 	</target>
 	<target name="tc-reload" depends="" description="Reload web application">
 		<tc:reload
-			url="${app.runtime.url}"
-			username="${app.runtime.user}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
 	<target name="tc-findleaks" depends="" description="Find leaks on the Tomcat">
 		<tc:findleaks
-			url="${app.runtime.url}"
-			username="${app.runtime.user}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
 	<target name="tc-resources" depends="" description="List resources on the Tomcat">
 		<tc:resources
-			url="${app.runtime.url}"
-			username="${app.runtime.user}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 		/>
 	</target>
 	<target name="tc-start" depends="" description="Start the application server">
 		<tc:start
-			url="${app.runtime.url}"
-			username="${app.runtime.user}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
 	<target name="tc-stop" depends="" description="Stop the application server">
 		<tc:stop
-			url="${app.runtime.url}"
-			username="${app.runtime.user}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
 	<target name="tc-undeploy" depends="" description="Remove web application">
 		<tc:undeploy
-			url="${app.runtime.url}"
-			username="${app.runtime.user}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
