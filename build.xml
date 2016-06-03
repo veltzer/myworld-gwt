@@ -63,7 +63,9 @@
 
 	<!-- Targets -->
 	<!-- loading our ivy-settigns file, with our own resolvers declarations :) -->
+	<!--
 	<ivy:settings file="ivy-settings.xml" id="ivy.instance" />
+	-->
 	<target name="ivy-retrieve" description="retrieve dependencies with ivy">
 		<!--
 		<ivy:resolve refresh="true" showprogress="true"/>

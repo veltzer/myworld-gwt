@@ -16,7 +16,9 @@ export ANT_VERSION=1.9.7
 export ANT_HOME=$(path_abs ~/install/apache-ant-$ANT_VERSION)
 export PATH=$(path_prefix "$ANT_HOME/bin" "$PATH")
 # This is needed so that secure connections to apache tomcat will succeed
-export ANT_OPTS="-Djavax.net.ssl.trustStore=/home/mark/.keystore -Djavax.net.ssl.trustStorePassword=PR0rV7320u"
+# We are no longer using this instead we are importing our certificate to the cacerts
+# store of java directly
+# export ANT_OPTS="-Djavax.net.ssl.trustStore=/home/mark/.keystore -Djavax.net.ssl.trustStorePassword=PR0rV7320u"
 
 # ivy stuff
 export IVY_VERSION=2.4.0

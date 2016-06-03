@@ -9,6 +9,8 @@ Notes:
 the keypass. See that in the code below.
 - You can see whats in the created file like this:
 keytool -list -v
+- to list all keys in the cacerts file use:
+keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit
 
 References:
 https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html
@@ -40,6 +42,14 @@ opt_keyalg='RSA'
 opt_validity=str(360*10)
 # how big is the key?
 opt_keysize='2048'
+# add the key to the jdk keystore?
+opt_add_to_cacerts=True
+# password for the JDK cacerts file
+opt_cacerts_pass='changeit'
+# cer file to use
+opt_cer=os.path.join(os.path.expanduser('~'), '.keystore.tomcat.cer')
+# cacerts file to add to
+opt_cacerts=os.path.join(os.environ['JAVA_HOME'], 'jre/lib/security/cacerts')
 '''
 Here is the reference from keytool(1):
 	CN=commonName
@@ -92,3 +102,50 @@ subprocess.check_call([
 ])
 # print a message that all is ok
 print('created keystore file [{0}]...'.format(opt_keystore))
+# export our certificate to a .cer file
+subprocess.check_call(
+	[
+		'keytool',
+		'-export',
+		'-alias',
+		opt_alias,
+		'-storepass:env',
+		'STOREPASS',
+		'-file',
+		opt_cer,
+	],
+	stderr=subprocess.DEVNULL, # because keytool is a little noisy
+)
+print('exported the tomcat certificate to [{0}]...'.format(opt_cer))
+
+if opt_add_to_cacerts:
+	# delete the old key (may not succeed if this is the first time)
+	subprocess.call(
+		[
+			'keytool',
+			'-delete',
+			'-alias',
+			opt_alias,
+			'-keystore',
+			opt_cacerts,
+			'-storepass',
+			opt_cacerts_pass,
+		]
+	)
+	subprocess.check_call(
+		[
+			'keytool',
+			'-importcert',
+			'-noprompt',
+			'-keystore',
+			opt_cacerts,
+			'-storepass',
+			opt_cacerts_pass,
+			'-alias',
+			opt_alias,
+			'-file',
+			opt_cer,
+		],
+		stderr=subprocess.DEVNULL, # because keytool is a little noisy
+	)
+	print('imported the tomcat certificate to [{0}]...'.format(opt_cacerts))
