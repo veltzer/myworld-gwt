@@ -1,26 +1,19 @@
 now
 ===
-use gwt native to build a new app.
-	try to get to something usable.
-	do this using version 2.7.0.
-try to use gwt-bootstrap, vaadin or the like (mgwt)
-	to enhance the widget set (but only
-	if you need it).
+- get to build the app with ant.
 
 environment
 ===========
-- do a bash script that I should source before starting to work on
-	this project (instead of having the code in ~/.bashrc).
 - make sure that eclipse still works right with all of the recent
 	changes.
 - configure the app to use only https.
 	configure tomcat to only use https (document how to do this).
-- store this one on github.
 - get this app running on GAE (google app engine).
 - get this app running on a remote instance of tomcat.
-- do a script that automagically configures tomcat for the needs of this app.
-	(python script that adds me as admin of the tomcat with the right user/password,
-	that increases the size of maximum upload and more).
+- do a python script that automagically configures tomcat for the needs of this app.
+	-adds me as admin of the tomcat with the right user/password,
+	-configures tomcat to be ssl only with the right keystore
+	-increases the size of maximum upload
 
 functionality
 =============

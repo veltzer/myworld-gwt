@@ -77,7 +77,7 @@
 	</target>
 	<target name="ivy-retrieve_local" description="retrieve dependencies with ivy from local">
 		<ivy:resolve useCacheOnly="true" showprogress="true"/>
-		<ivy:retrieve sync="true" symlink="true"/>
+		<ivy:retrieve sync="true" symlink="true" pattern="lib/[conf]/[artifact]-[type].[ext]"/>
 	</target>
 	<target name="ivy-cleancache" depends="" description="purge ivy cache">
 		<ivy:cleancache/>
@@ -95,6 +95,8 @@
 			<fileset dir="src" excludes="**/*.java"/>
 		</copy>
 		<!-- compile -->
+		<!--
+		-->
 		<javac srcdir="src" includes="**" encoding="utf-8"
 			includeantruntime="false"
 			destdir="war/WEB-INF/classes"
