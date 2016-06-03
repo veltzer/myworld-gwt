@@ -20,6 +20,7 @@
 	<!-- Properties -->
 	<xmlproperty file="${env.HOME}/.build_common_properties.xml" semanticAttributes="true"/>
 	<xmlproperty file="build_common_properties.xml" semanticAttributes="true"/>
+	<property file="local.properties"/>
 
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />
@@ -173,7 +174,7 @@
 
 	<!-- remote tasks -->
 	<target name="remote-deploy" depends="" description="Install web application">
-		<tc-deploy
+		<tc:deploy
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
@@ -182,14 +183,14 @@
 		/>
 	</target>
 	<target name="remote-list" depends="" description="List applications on the Tomcat">
-		<tc-list
+		<tc:list
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
 		/>
 	</target>
 	<target name="remote-reload" depends="" description="Reload web application">
-		<tc-reload
+		<tc:reload
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
@@ -197,7 +198,7 @@
 		/>
 	</target>
 	<target name="remote-findleaks" depends="" description="Find leaks on the Tomcat">
-		<tc-findleaks
+		<tc:findleaks
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
@@ -205,14 +206,14 @@
 		/>
 	</target>
 	<target name="remote-resources" depends="" description="List resources on the Tomcat">
-		<tc-resources
+		<tc:resources
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
 		/>
 	</target>
 	<target name="remote-start" depends="" description="Start the application server">
-		<tc-start
+		<tc:start
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
@@ -220,7 +221,7 @@
 		/>
 	</target>
 	<target name="remote-stop" depends="" description="Stop the application server">
-		<tc-stop
+		<tc:stop
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
@@ -228,7 +229,7 @@
 		/>
 	</target>
 	<target name="remote-undeploy" depends="" description="Remove web application">
-		<tc-undeploy
+		<tc:undeploy
 			url="${app.runtime.url}"
 			username="${app.runtime.username}"
 			password="${app.runtime.password}"
@@ -236,15 +237,15 @@
 		/>
 	</target>
 	<target name="remote-validate" depends="" description="Validate the application (what is that?)">
-		<tc-validate
+		<tc:validate
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="remote-serverinfo" depends="" description="Show tomcat version">
-		<tc-serverinfo
-			url="${app.runtime.url}"
-			username="${app.runtime.username}"
-			password="${app.runtime.password}"
+	<target name="tc-vminfo" depends="" description="Show tomcat version">
+		<tc:vminfo
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 		/>
 	</target>
 	<target name="remote-redeploy" depends="war, remote-undeploy, remote-deploy" description="Redeploy the app">
@@ -253,6 +254,7 @@
 		<echoproperties>
 			<propertyset>
 				<propertyref prefix="app."/>
+				<propertyref prefix="manager."/>
 			</propertyset>
 		</echoproperties>
 	</target>
