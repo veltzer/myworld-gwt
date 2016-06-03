@@ -172,71 +172,74 @@
 		<delete dir=".gwt" failonerror="false" verbose="true"/>
 	</target>
 
-	<!-- remote tasks -->
-	<target name="remote-deploy" depends="" description="Install web application">
+	<!-- tc tasks -->
+	<target name="tc-showcommands" depends="" description="trick to show all tc commands">
+		<tc:showcommands/>
+	</target>
+	<target name="tc-deploy" depends="" description="Install web application">
 		<tc:deploy
-			url="${app.runtime.url}"
-			username="${app.runtime.username}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 			path="${app.runtime.path}"
 			war="${gwt.warfile}"
 		/>
 	</target>
-	<target name="remote-list" depends="" description="List applications on the Tomcat">
+	<target name="tc-list" depends="" description="List applications on the Tomcat">
 		<tc:list
-			url="${app.runtime.url}"
-			username="${app.runtime.username}"
-			password="${app.runtime.password}"
+			url="${manager.url}"
+			username="${manager.user}"
+			password="${manager.password}"
 		/>
 	</target>
-	<target name="remote-reload" depends="" description="Reload web application">
+	<target name="tc-reload" depends="" description="Reload web application">
 		<tc:reload
 			url="${app.runtime.url}"
-			username="${app.runtime.username}"
+			username="${app.runtime.user}"
 			password="${app.runtime.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="remote-findleaks" depends="" description="Find leaks on the Tomcat">
+	<target name="tc-findleaks" depends="" description="Find leaks on the Tomcat">
 		<tc:findleaks
 			url="${app.runtime.url}"
-			username="${app.runtime.username}"
+			username="${app.runtime.user}"
 			password="${app.runtime.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="remote-resources" depends="" description="List resources on the Tomcat">
+	<target name="tc-resources" depends="" description="List resources on the Tomcat">
 		<tc:resources
 			url="${app.runtime.url}"
-			username="${app.runtime.username}"
+			username="${app.runtime.user}"
 			password="${app.runtime.password}"
 		/>
 	</target>
-	<target name="remote-start" depends="" description="Start the application server">
+	<target name="tc-start" depends="" description="Start the application server">
 		<tc:start
 			url="${app.runtime.url}"
-			username="${app.runtime.username}"
+			username="${app.runtime.user}"
 			password="${app.runtime.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="remote-stop" depends="" description="Stop the application server">
+	<target name="tc-stop" depends="" description="Stop the application server">
 		<tc:stop
 			url="${app.runtime.url}"
-			username="${app.runtime.username}"
+			username="${app.runtime.user}"
 			password="${app.runtime.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="remote-undeploy" depends="" description="Remove web application">
+	<target name="tc-undeploy" depends="" description="Remove web application">
 		<tc:undeploy
 			url="${app.runtime.url}"
-			username="${app.runtime.username}"
+			username="${app.runtime.user}"
 			password="${app.runtime.password}"
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="remote-validate" depends="" description="Validate the application (what is that?)">
+	<target name="tc-validate" depends="" description="Validate the application (what is that?)">
 		<tc:validate
 			path="${app.runtime.path}"
 		/>
@@ -248,7 +251,7 @@
 			password="${manager.password}"
 		/>
 	</target>
-	<target name="remote-redeploy" depends="war, remote-undeploy, remote-deploy" description="Redeploy the app">
+	<target name="tc-redeploy" depends="war, tc-undeploy, tc-deploy" description="Redeploy the app">
 	</target>
 	<target name="echoproperties" depends="" description="echo all properties (for debugging puposes)">
 		<echoproperties>
