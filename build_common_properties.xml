@@ -3,16 +3,12 @@
 <app>
 	<!-- note that all properties set here can be overridden on the command line or in local.properties -->
 	<name>gwtworld</name>
-	<ant_version>1.9</ant_version>
-	<tomcat_version>7.0.39</tomcat_version>
-	<mysql_version>5.5.31</mysql_version>
 	<test>
 		<output>
 			<dir location="${basedir}/test-results"/>
 		</output>
 	</test>
 	<compile>
-		<java_version>1.7</java_version>
 		<javadoc>
 			<dir location="${basedir}/javadoc"/>
 		</javadoc>
