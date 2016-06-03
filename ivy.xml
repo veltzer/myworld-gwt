@@ -1,7 +1,6 @@
 <ivy-module version="2.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation=
-                   "http://ant.apache.org/ivy/schemas/ivy.xsd"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
 	>
 	<!--
 		to find more entries to put here use:
@@ -17,18 +16,15 @@
 		<conf name="eclipse" description="jars that eclipse needs to work"/>
 	</configurations>
 	<dependencies>
-		<!--
-		gwt
-		-->
+		<!-- gwt -->
 		<dependency org="com.google.gwt" name="gwt-user" rev="2.7.0" conf="antbuild->default"/>
 		<dependency org="com.google.gwt" name="gwt-dev" rev="2.7.0" conf="antbuild->default"/>
 		<dependency org="com.google.gwt" name="gwt-servlet" rev="2.7.0" conf="runtime->default"/>
 		<dependency org="com.google.web.bindery" name="requestfactory-client" rev="2.7.0" conf="runtime->default"/>
-		<!--
-		gxt
+		<!-- gxt -->
 		<dependency org="com.sencha.gxt" name="gxt" rev="4.0.0" conf="runtime->default"/>
 		<dependency org="com.sencha.gxt" name="gxt-theme-neptune" rev="4.0.0" conf="runtime->default"/>
-		-->
+		<!-- other stuff -->
 		<dependency org="org.apache.tomcat" name="tomcat-catalina-ant" rev="latest.release" conf="antextensions->default"/>
 		<dependency org="org.apache.tomcat" name="tomcat-coyote" rev="latest.release" conf="antextensions->default"/>
 		<dependency org="org.apache.tomcat" name="tomcat-util" rev="latest.release" conf="antextensions->default"/>

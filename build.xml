@@ -5,6 +5,7 @@
 	default="war"
 	basedir="."
 	xmlns:ivy="antlib:org.apache.ivy.ant"
+	xmlns:tc="tc"
 >
 	<!-- Check environment variables -->
 	<property environment="env"/>
@@ -46,77 +47,22 @@
 	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
 		<classpath>
 			<pathelement location="${env.IVY_HOME}/ivy-${env.IVY_VERSION}.jar" />
-			<!--
-			<pathelement location="/usr/share/java/ivy.jar" />
-			-->
 		</classpath>
 	</taskdef>
-	<taskdef
-		name="tc-deploy"
-		classname="org.apache.catalina.ant.DeployTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-list"
-		classname="org.apache.catalina.ant.ListTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-reload"
-		classname="org.apache.catalina.ant.ReloadTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-findleaks"
-		classname="org.apache.catalina.ant.FindLeaksTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-resources"
-		classname="org.apache.catalina.ant.ResourcesTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-start"
-		classname="org.apache.catalina.ant.StartTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-stop"
-		classname="org.apache.catalina.ant.StopTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-undeploy"
-		classname="org.apache.catalina.ant.UndeployTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-validate"
-		classname="org.apache.catalina.ant.ValidatorTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
-	<taskdef
-		name="tc-serverinfo"
-		classname="org.apache.catalina.ant.ServerinfoTask"
-		classpathref="ant.class.path"
-		onerror="report"
-	/>
+	<taskdef resource="org/apache/catalina/ant/catalina.tasks" uri="tc">
+		<classpath>
+			<pathelement location="${env.TOMCAT_HOME}/lib/catalina-ant.jar"/>
+			<pathelement location="${env.TOMCAT_HOME}/lib/jasper.jar"/>
+			<pathelement location="${env.TOMCAT_HOME}/lib/servlet-api.jar"/>
+			<pathelement location="${env.TOMCAT_HOME}/lib/jsp-api.jar"/>
+			<pathelement location="${env.TOMCAT_HOME}/lib/tomcat-util.jar"/>
+			<pathelement location="${env.TOMCAT_HOME}/bin/tomcat-juli.jar"/>
+		</classpath>
+	</taskdef>
 
 	<!-- Targets -->
 	<!-- loading our ivy-settigns file, with our own resolvers declarations :) -->
-	<!--
 	<ivy:settings file="ivy-settings.xml" id="ivy.instance" />
-	-->
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
 		<!--
 		<ivy:resolve refresh="true" showprogress="true"/>
@@ -132,6 +78,9 @@
 	</target>
 	<target name="ivy_cleancache" depends="" description="purge ivy cache">
 		<ivy:cleancache/>
+	</target>
+	<target name="ivy_clean" depends="" description="clean all stuff braught by ivy">
+		<delete dir="lib" failonerror="false" verbose="true"/>
 	</target>
 	<target name="empty" description="Do nothing">
 	</target>
