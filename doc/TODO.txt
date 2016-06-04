@@ -1,5 +1,6 @@
 now
 ===
+- solve the three warnings that eclipse still shows for this project.
 - get the save button to work.
 - get this app to run on app engine.
 - make the .classpath file of eclipse populate from my classpath.
