@@ -171,7 +171,7 @@ public class Gwtworld implements EntryPoint {
 		FramedPanel panel=new FramedPanel();
 		//panel.setHeadingText("Existing work viewed");
 		panel.add(form);
-		panel.add(save);
+		//panel.add(save);
 
 		return panel;
 	}
