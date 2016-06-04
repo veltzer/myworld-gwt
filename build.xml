@@ -271,8 +271,8 @@
 			path="${app.runtime.path}"
 		/>
 	</target>
-	<target name="tc-validate" depends="" description="Validate the application (what is that?)">
-		<tc:validate
+	<target name="tc-validator" depends="" description="Validate the application (what is that?)">
+		<tc:validator
 			path="${app.runtime.path}"
 		/>
 	</target>
