@@ -18,9 +18,23 @@
 	<fail unless="env.GXT_HOME" message="GXT_HOME not set"/>
 
 	<!-- Properties -->
-	<xmlproperty file="${env.HOME}/.build_common_properties.xml" semanticAttributes="true"/>
-	<xmlproperty file="build_common_properties.xml" semanticAttributes="true"/>
-	<property file="local.properties"/>
+	<property name="xml.validate" value="false"/>
+	<fail message="missing properties file">
+		<condition>
+			<not>
+				<available file="${env.HOME}/.build_common_properties.xml"/>
+			</not>
+		</condition>
+	</fail>
+	<xmlproperty file="${env.HOME}/.build_common_properties.xml" validate="${xml.validate}" semanticAttributes="true"/>
+	<fail message="missing properties file">
+		<condition>
+			<not>
+				<available file="build_common_properties.xml"/>
+			</not>
+		</condition>
+	</fail>
+	<xmlproperty file="build_common_properties.xml" validate="${xml.validate}" semanticAttributes="true" keepRoot="false"/>
 
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />
