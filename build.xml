@@ -99,11 +99,11 @@
 	<target name="ivy-copy" depends="" description="copy files instead of fetching from the internet">
 		<!-- gwt -->
 		<symlink overwrite="true" link="lib/runtime/gwt-servlet.jar" resource="${env.GWT_HOME}/gwt-servlet.jar"/>
-		<symlink overwrite="true" link="lib/runtime/gwt-user.jar" resource="${env.GWT_HOME}/gwt-user.jar"/>
-		<symlink overwrite="true" link="lib/runtime/gwt-dev.jar" resource="${env.GWT_HOME}/gwt-dev.jar"/>
+		<symlink overwrite="true" link="lib/antbuild/gwt-user.jar" resource="${env.GWT_HOME}/gwt-user.jar"/>
+		<symlink overwrite="true" link="lib/antbuild/gwt-dev.jar" resource="${env.GWT_HOME}/gwt-dev.jar"/>
 		<symlink overwrite="true" link="lib/runtime/validation-api-1.0.0.GA.jar" resource="${env.GWT_HOME}/validation-api-1.0.0.GA.jar"/>
-		<symlink overwrite="true" link="lib/runtime/validation-api-1.0.0.GA-sources.jar" resource="${env.GWT_HOME}/validation-api-1.0.0.GA-sources.jar"/>
-		<symlink overwrite="true" link="lib/runtime/requestfactory-client.jar" resource="${env.GWT_HOME}/requestfactory-client.jar"/>
+		<symlink overwrite="true" link="lib/antbuild/validation-api-1.0.0.GA-sources.jar" resource="${env.GWT_HOME}/validation-api-1.0.0.GA-sources.jar"/>
+		<symlink overwrite="true" link="lib/antbuild/requestfactory-client.jar" resource="${env.GWT_HOME}/requestfactory-client.jar"/>
 		<!-- gxt -->
 		<symlink overwrite="true" link="lib/runtime/gxt.jar" resource="${env.GXT_HOME}/gxt.jar"/>
 		<symlink overwrite="true" link="lib/runtime/gxt-theme-neptune.jar" resource="${env.GXT_HOME}/gxt-theme-neptune.jar"/>
@@ -149,8 +149,15 @@
 			<arg line="${gwt.args}"/>
 			<arg value="${gwt.appxml}"/>
 			<!-- optimize the speed of the compilation -->
+			<!--
 			<arg line="-localWorkers"/>
 			<arg line="8"/>
+			-->
+			<!-- these flags reduce the optimization level of the output -->
+			<!--
+			it seems that the gwt compiler has bugs and this is needed so that
+			the app works at all!
+			-->
 			<arg line="-draftCompile"/>
 			<arg line="-optimize"/>
 			<arg line="0"/>
@@ -185,7 +192,9 @@
 		<delete dir="war/WEB-INF/classes" failonerror="false" verbose="true"/>
 		<delete dir="war/WEB-INF/deploy" failonerror="false" verbose="true"/>
 		<delete dir="war/${gwt.appname}" failonerror="false" verbose="true"/>
+		<!--
 		<delete dir="lib" failonerror="false" verbose="true"/>
+		-->
 		<delete dir="gwt-unitCache" failonerror="false" verbose="true"/>
 		<delete dir="test-classes" failonerror="false" verbose="true"/>
 		<delete file="${gwt.warfile}" failonerror="false" verbose="true"/>
