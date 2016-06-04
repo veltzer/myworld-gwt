@@ -214,6 +214,7 @@
 			password="${manager.password}"
 			path="${app.runtime.path}"
 			war="${gwt.warfile}"
+			update="true"
 		/>
 	</target>
 	<target name="tc-list" depends="" description="List applications on the Tomcat">
