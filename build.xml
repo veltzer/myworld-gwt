@@ -26,7 +26,7 @@
 			</not>
 		</condition>
 	</fail>
-	<xmlproperty file="${env.HOME}/.build_common_properties.xml" validate="${xml.validate}" semanticAttributes="true"/>
+	<xmlproperty file="${env.HOME}/.build_common_properties.xml" validate="${xml.validate}" semanticAttributes="true" keepRoot="false"/>
 	<fail message="missing properties file">
 		<condition>
 			<not>
@@ -34,7 +34,7 @@
 			</not>
 		</condition>
 	</fail>
-	<xmlproperty file="build_common_properties.xml" validate="${xml.validate}" semanticAttributes="true" keepRoot="false"/>
+	<xmlproperty file="build_common_properties.xml" validate="${xml.validate}" semanticAttributes="true"/>
 
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />
