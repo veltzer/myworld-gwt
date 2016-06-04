@@ -1,6 +1,6 @@
 now
 ===
-- get to build the app with ant.
+- get the app to work again.
 
 environment
 ===========
