@@ -169,7 +169,7 @@ public class Gwtworld implements EntryPoint {
 		form.add(vlc);
 
 		FramedPanel panel=new FramedPanel();
-		panel.setHeadingText("Existing work viewed");
+		//panel.setHeadingText("Existing work viewed");
 		panel.add(form);
 		panel.add(save);
 

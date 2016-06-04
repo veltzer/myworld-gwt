@@ -17,10 +17,12 @@
 	</configurations>
 	<dependencies>
 		<!-- gwt -->
+		<!--
 		<dependency org="com.google.gwt" name="gwt-user" rev="2.7.0" conf="antbuild->default"/>
 		<dependency org="com.google.gwt" name="gwt-dev" rev="2.7.0" conf="antbuild->default"/>
 		<dependency org="com.google.gwt" name="gwt-servlet" rev="2.7.0" conf="runtime->default"/>
 		<dependency org="com.google.web.bindery" name="requestfactory-client" rev="2.7.0" conf="runtime->default"/>
+		-->
 		<!-- gxt -->
 		<!--
 		<dependency org="com.sencha.gxt" name="gxt" rev="3.1.1" conf="runtime->default"/>
@@ -33,9 +35,9 @@
 		<dependency org="mysql" name="mysql-connector-java" rev="latest.release" conf="runtime->default;eclipse->default"/>
 		<dependency org="org.eclipse.persistence" name="javax.persistence" rev="latest.release" conf="runtime->default"/>
 		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.release" conf="runtime->default"/>
-		<dependency org="javax.validation" name="validation-api" rev="latest.release" conf="runtime->default,sources"/>
 		<dependency org="com.googlecode.gwt-validation" name="gwt-validation" rev="latest.release" conf="antbuild->default"/>
 		<!--
+		<dependency org="javax.validation" name="validation-api" rev="latest.release" conf="runtime->default,sources"/>
 		<dependency org="javax.persistence" name="persistence-api" rev="latest.release" conf="runtime->default"/>
 		<dependency org="com.google.web.bindery" name="requestfactory" rev="2.6.0" conf="runtime->default"/>
 		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpars" rev="latest.release"/>
