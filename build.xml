@@ -106,7 +106,9 @@
 		<symlink overwrite="true" link="lib/antbuild/requestfactory-client.jar" resource="${env.GWT_HOME}/requestfactory-client.jar"/>
 		<!-- gxt -->
 		<symlink overwrite="true" link="lib/runtime/gxt.jar" resource="${env.GXT_HOME}/gxt.jar"/>
+		<!--
 		<symlink overwrite="true" link="lib/runtime/gxt-theme-neptune.jar" resource="${env.GXT_HOME}/gxt-theme-neptune.jar"/>
+		-->
 	</target>
 	<target name="ivy-clean" depends="" description="clean all stuff braught by ivy">
 		<delete dir="lib" failonerror="false" verbose="true"/>

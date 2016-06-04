@@ -2,13 +2,52 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" output="test-classes" path="test"/>
+	<classpathentry excluding="runtime/" kind="src" path="lib"/>
+	<classpathentry kind="src" path="lib/runtime"/>
 	<classpathentry exported="true" kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.6.1"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ANTBUILD"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ANTEXTENSIONS"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ECLIPSE"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/RUMTIME"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/TEST"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME"/>
+	<classpathentry kind="lib" path="lib/runtime/gxt.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/javax.json-bundle.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/javax.persistence-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/mysql-connector-java-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/org.eclipse.persistence.antlr-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/org.eclipse.persistence.asm-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/org.eclipse.persistence.core-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/org.eclipse.persistence.jpa-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/org.eclipse.persistence.jpa.jpql-jar.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/antbuild/dom4j-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/freemarker-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/guava-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/gwt-dev.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/gwt-user.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/gwt-validation-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/javassist-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/javax.json-bundle.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/javax.persistence-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/mysql-connector-java-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/org.eclipse.persistence.antlr-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/org.eclipse.persistence.asm-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/org.eclipse.persistence.core-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/org.eclipse.persistence.jpa-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/org.eclipse.persistence.jpa.jpql-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/reflections-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/requestfactory-client.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/slf4j-api-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/slf4j-simple-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/validation-api-jar.jar"/>
+	<classpathentry kind="lib" path="lib/antbuild/xml-apis-jar.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
