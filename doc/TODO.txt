@@ -1,6 +1,8 @@
 now
 ===
-- get the app to work again.
+- get the save button to work.
+- get this app to run on app engine.
+- make the .classpath file of eclipse populate from my classpath.
 
 environment
 ===========
