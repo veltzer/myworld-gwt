@@ -34,7 +34,7 @@
 	</compile>
 	<db>
 		<version>5.6.24-0ubuntu2 (Ubuntu)</version>
-		<driver>com.mysql.jdbc.Driver</driver>
+		<driver>com.mysql.cj.jdbc.Driver</driver>
 		<driver_jar>lib/runtime/mysql-connector-java-jar.jar</driver_jar>
 		<name>myworld</name>
 		<url>jdbc:mysql://localhost:3306/${app.db.name}</url>

@@ -28,13 +28,18 @@
 		<dependency org="com.sencha.gxt" name="gxt" rev="3.1.1" conf="runtime->default"/>
 		<dependency org="com.sencha.gxt" name="gxt-theme-neptune" rev="3.1.1" conf="runtime->default"/>
 		-->
-		<!-- other stuff -->
-		<dependency org="org.apache.tomcat" name="tomcat-catalina-ant" rev="latest.release" conf="antextensions->default"/>
-		<dependency org="org.apache.tomcat" name="tomcat-coyote" rev="latest.release" conf="antextensions->default"/>
-		<dependency org="org.apache.tomcat" name="tomcat-util" rev="latest.release" conf="antextensions->default"/>
+		<!-- ant -->
+		<!--
+		<dependency org="org.apache.tomcat" name="catalina-ant" rev="latest.release" conf="antextensions->default"/>
+		<dependency org="tomcat" name="tomcat-coyote" rev="latest.release" conf="antextensions->default"/>
+		<dependency org="tomcat" name="tomcat-util" rev="latest.release" conf="antextensions->default"/>
+		-->
+		<!-- mysql -->
 		<dependency org="mysql" name="mysql-connector-java" rev="latest.release" conf="runtime->default;eclipse->default"/>
+		<!-- eclipse persistance -->
 		<dependency org="org.eclipse.persistence" name="javax.persistence" rev="latest.release" conf="runtime->default"/>
 		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.release" conf="runtime->default"/>
+		<!-- gwt validation -->
 		<dependency org="com.googlecode.gwt-validation" name="gwt-validation" rev="latest.release" conf="antbuild->default"/>
 		<!--
 		<dependency org="javax.validation" name="validation-api" rev="latest.release" conf="runtime->default,sources"/>

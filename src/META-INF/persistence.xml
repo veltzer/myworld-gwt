@@ -13,10 +13,15 @@
 		<class>org.meta.gwtworld.client.db.TbDevice</class>
 		<class>org.meta.gwtworld.client.db.TbLocation</class>
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/myworld"/>
+			<!-- the '.cj.' is the new version of the driver that can be auto-loaded -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+			<!-- the '?useSSL=false' addition is in order not to mess with certificates for the db server -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/myworld?useSSL=false"/>
 			<property name="javax.persistence.jdbc.user" value="mark"/>
 			<property name="javax.persistence.jdbc.password" value="fVgyzpYy5N"/>
+			<!-- default level is 'INFO' -->
+			<!-- see more at: https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
+			<property name="eclipselink.logging.level" value="WARNING" />
 		</properties>
 	</persistence-unit>
 </persistence>
