@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE project>
 <project
-	name="gwtworld"
+	name="myworld-gwt"
 	default="war"
 	basedir="."
 	xmlns:ivy="antlib:org.apache.ivy.ant"
@@ -38,10 +38,11 @@
 
 	<!-- Parameters -->
 	<property name="gwt.args" value="" />
-	<property name="gwt.appname" value="gwtworld" />
+	<property name="gwt.appname" value="myworld-gwt" />
 	<property name="gwt.appxml" value="org.meta.gwtworld.Gwtworld" />
 	<property name="gwt.html" value="Gwtworld.html" />
 	<property name="gwt.warfile" value="${gwt.appname}.war" />
+	<property name="gwt.runtimepath" value="${gwt.appname}" />
 
 	<!-- Paths -->
 	<path id="runtime.class.path">
@@ -223,8 +224,9 @@
 			url="${manager.url}"
 			username="${manager.user}"
 			password="${manager.password}"
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
 			war="${gwt.warfile}"
+			version="1"
 			update="true"
 		/>
 	</target>
@@ -240,7 +242,7 @@
 			url="${manager.url}"
 			username="${manager.user}"
 			password="${manager.password}"
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
 		/>
 	</target>
 	<target name="tc-findleaks" depends="" description="Find leaks on the Tomcat">
@@ -248,7 +250,7 @@
 			url="${manager.url}"
 			username="${manager.user}"
 			password="${manager.password}"
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
 		/>
 	</target>
 	<target name="tc-resources" depends="" description="List resources on the Tomcat">
@@ -263,7 +265,7 @@
 			url="${manager.url}"
 			username="${manager.user}"
 			password="${manager.password}"
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
 		/>
 	</target>
 	<target name="tc-stop" depends="" description="Stop the application server">
@@ -271,7 +273,7 @@
 			url="${manager.url}"
 			username="${manager.user}"
 			password="${manager.password}"
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
 		/>
 	</target>
 	<target name="tc-undeploy" depends="" description="Remove web application">
@@ -279,12 +281,13 @@
 			url="${manager.url}"
 			username="${manager.user}"
 			password="${manager.password}"
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
+			failOnError="false"
 		/>
 	</target>
 	<target name="tc-validator" depends="" description="Validate the application (what is that?)">
 		<tc:validator
-			path="${app.runtime.path}"
+			path="${gwt.runtimepath}"
 		/>
 	</target>
 	<target name="tc-vminfo" depends="" description="Show tomcat version">

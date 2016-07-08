@@ -44,8 +44,6 @@
 		<admin_pass>XXX</admin_pass>
 	</db>
 	<runtime>
-		<url>http://localhost:8080/manager/text</url>
-		<path>/gwtworld</path>
 		<username>XXX</username>
 		<password>XXX</password>
 		<tomcat_home>/home/mark/install/apache-tomcat-7.0.39</tomcat_home>
