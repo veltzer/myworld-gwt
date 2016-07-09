@@ -1,7 +1,5 @@
 now
 ===
-- ant tc-deploy does not work.
-
 - solve the three warnings that eclipse still shows for this project.
 - get the save button to work.
 - get this app to run on app engine.
