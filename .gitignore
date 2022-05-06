@@ -9,3 +9,4 @@
 /velocity.log
 /lib
 *.stamp
+/.pydmt/
