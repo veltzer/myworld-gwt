@@ -14,8 +14,6 @@ keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit
 
 References:
 https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html
-
-    Mark Veltzer <mark@veltzer.net>
 '''
 
 ###########
