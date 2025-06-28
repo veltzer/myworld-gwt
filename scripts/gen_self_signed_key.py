@@ -99,7 +99,7 @@ subprocess.check_call([
     opt_keystore,
 ])
 # print a message that all is ok
-print('created keystore file [{0}]...'.format(opt_keystore))
+print(f'created keystore file [{opt_keystore}]...')
 # export our certificate to a .cer file
 subprocess.check_call(
     [
@@ -114,7 +114,7 @@ subprocess.check_call(
     ],
     stderr=subprocess.DEVNULL, # because keytool is a little noisy
 )
-print('exported the tomcat certificate to [{0}]...'.format(opt_cer))
+print(f'exported the tomcat certificate to [{opt_cer}]...')
 
 if opt_add_to_cacerts:
     # delete the old key (may not succeed if this is the first time)
@@ -146,4 +146,4 @@ if opt_add_to_cacerts:
         ],
         stderr=subprocess.DEVNULL, # because keytool is a little noisy
     )
-    print('imported the tomcat certificate to [{0}]...'.format(opt_cacerts))
+    print(f'imported the tomcat certificate to [{opt_cacerts}]...')
