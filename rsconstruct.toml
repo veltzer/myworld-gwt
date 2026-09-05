@@ -13,7 +13,6 @@ src_dirs = ["scripts"]
 
 [processor.shellcheck]
 src_dirs = ["scripts"]
-args = ["--severity=error", "--shell=bash"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
@@ -40,3 +39,30 @@ system = ["maven", "openjdk-8-jdk-headless"]
 # lint the GitHub Actions workflow files with actionlint
 [processor.actionlint]
 src_dirs = [".github/workflows"]
+
+# ─── markdown ────────────────────────────────────────────────────────────────
+
+[processor.rumdl]
+src_files = ["README.md"]
+
+# ─── xml / svg ───────────────────────────────────────────────────────────────
+
+[processor.xmllint]
+src_dirs = ["src", "war/WEB-INF"]
+src_files = ["pom.xml"]
+
+# ─── java ────────────────────────────────────────────────────────────────────
+
+[processor.checkstyle]
+src_dirs = ["src/org/meta/gwtworld"]
+args = ["-c", "checkstyle.xml"]
+
+# ─── html ────────────────────────────────────────────────────────────────────
+
+[processor.htmlhint]
+src_dirs = ["war"]
+
+# ─── css ─────────────────────────────────────────────────────────────────────
+
+[processor.stylelint]
+src_dirs = ["war"]

@@ -146,7 +146,7 @@ public class Gwtworld implements EntryPoint {
 						locCombo.isCurrentValid() &&
 						df.isCurrentValid() &&
 						tf.isCurrentValid() &&
-						((ar.getValue() && rf.getCurrentValue()!="") || (!ar.getValue()))
+						((ar.getValue() && !"".equals(rf.getCurrentValue())) || (!ar.getValue()))
 				);
 			}
 		};
