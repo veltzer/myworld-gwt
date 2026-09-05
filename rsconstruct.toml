@@ -1,0 +1,42 @@
+# rsconstruct build configuration for this repository.
+
+[analyzer.python]
+
+[processor.ruff]
+src_dirs = ["scripts"]
+
+[processor.pylint]
+src_dirs = ["scripts"]
+
+[processor.mypy]
+src_dirs = ["scripts"]
+
+[processor.shellcheck]
+src_dirs = ["scripts"]
+args = ["--severity=error", "--shell=bash"]
+
+# ─── toml / yaml / json ──────────────────────────────────────────────────────
+
+[processor.taplo]
+src_dirs = ["."]
+
+# ─── repo-specific configuration ────────────────────────────────────────────
+
+# The application is a maven war: pom.xml is its dependency manifest (there
+# is no other place for the GWT/GXT dependency closure) and maven does the
+# GWT compile and the packaging. rsconstruct owns the build and calls maven
+# for it, the same way the cargo processor drives cargo from Cargo.toml.
+[processor.explicit.war]
+command = "scripts/mvn_package.py"
+inputs = ["pom.xml"]
+input_globs = ["src/**/*", "war/**/*"]
+output_files = ["target/myworld-gwt-1.0.war"]
+
+# openjdk-8-jdk-headless is the JVM pom.xml forks the GWT 2.6 compiler on;
+# maven itself runs on the default JDK.
+[dependencies]
+system = ["maven", "openjdk-8-jdk-headless"]
+
+# lint the GitHub Actions workflow files with actionlint
+[processor.actionlint]
+src_dirs = [".github/workflows"]

@@ -19,35 +19,35 @@ https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html
 ###########
 # imports #
 ###########
-import subprocess # for check_call
-import os # for environ, unlink
-import os.path # for isfile, expanduser, join
+import os  # for environ, unlink
+import os.path  # for isfile, expanduser, join
+import subprocess  # for check_call
 
 ###########
 # globals #
 ###########
 # password for the key store
-opt_storepass='PR0rV7320u'
+OPT_STOREPASS='PR0rV7320u'
 # password for the key
-opt_keypass=opt_storepass
+OPT_KEYPASS=OPT_STOREPASS
 # alias for the key
-opt_alias='tomcat'
+OPT_ALIAS='tomcat'
 # keystore file to use
-opt_keystore=os.path.join(os.path.expanduser('~'), '.keystore')
+OPT_KEYSTORE=os.path.join(os.path.expanduser('~'), '.keystore')
 # the algorithm for the key? (RSA, DSA, DES)
-opt_keyalg='RSA'
+OPT_KEYALG='RSA'
 # for how long will the key be valid?
-opt_validity=str(360*10)
+OPT_VALIDITY=str(360*10)
 # how big is the key?
-opt_keysize='2048'
+OPT_KEYSIZE='2048'
 # add the key to the jdk keystore?
-opt_add_to_cacerts=True
+OPT_ADD_TO_CACERTS=True
 # password for the JDK cacerts file
-opt_cacerts_pass='changeit'
+OPT_CACERTS_PASS='changeit'
 # cer file to use
-opt_cer=os.path.join(os.path.expanduser('~'), '.keystore.tomcat.cer')
+OPT_CER=os.path.join(os.path.expanduser('~'), '.keystore.tomcat.cer')
 # cacerts file to add to
-opt_cacerts=os.path.join(os.environ['JAVA_HOME'], 'jre/lib/security/cacerts')
+OPT_CACERTS=os.path.join(os.environ['JAVA_HOME'], 'jre/lib/security/cacerts')
 '''
 Here is the reference from keytool(1):
     CN=commonName
@@ -58,7 +58,7 @@ Here is the reference from keytool(1):
     C=country
 CN=Mark Smith, OU=Java, O=Oracle, L=Cupertino, S=California, C=US
 '''
-opt_data={
+OPT_DATA={
     # this is the name of the host for which you want the certificate
     # it must be identical to the name that you will access (e.g. https://localhost:8443/...).
     'cn': 'localhost',
@@ -73,61 +73,61 @@ opt_data={
 # code #
 ########
 # remove the old file
-if os.path.isfile(opt_keystore):
-    os.unlink(opt_keystore)
+if os.path.isfile(OPT_KEYSTORE):
+    os.unlink(OPT_KEYSTORE)
 # set the environment variable STOREPASS to have the right password
-os.environ['STOREPASS']=opt_storepass
+os.environ['STOREPASS']=OPT_STOREPASS
 # call keytool to generate the keystore
 subprocess.check_call([
     'keytool',
     '-genkey',
     '-alias',
-    opt_alias,
+    OPT_ALIAS,
     '-keyalg',
-    opt_keyalg,
+    OPT_KEYALG,
     '-validity',
-    opt_validity,
+    OPT_VALIDITY,
     '-keysize',
-    opt_keysize,
+    OPT_KEYSIZE,
     '-storepass:env',
     'STOREPASS',
     '-dname',
-    'cn={cn}, ou={ou}, o={o}, l={l}, s={s}, c={c}'.format(**opt_data),
+    'cn={cn}, ou={ou}, o={o}, l={l}, s={s}, c={c}'.format(**OPT_DATA),
     '-keypass',
-    opt_keypass,
+    OPT_KEYPASS,
     '-keystore',
-    opt_keystore,
+    OPT_KEYSTORE,
 ])
 # print a message that all is ok
-print(f'created keystore file [{opt_keystore}]...')
+print(f'created keystore file [{OPT_KEYSTORE}]...')
 # export our certificate to a .cer file
 subprocess.check_call(
     [
         'keytool',
         '-export',
         '-alias',
-        opt_alias,
+        OPT_ALIAS,
         '-storepass:env',
         'STOREPASS',
         '-file',
-        opt_cer,
+        OPT_CER,
     ],
     stderr=subprocess.DEVNULL, # because keytool is a little noisy
 )
-print(f'exported the tomcat certificate to [{opt_cer}]...')
+print(f'exported the tomcat certificate to [{OPT_CER}]...')
 
-if opt_add_to_cacerts:
+if OPT_ADD_TO_CACERTS:
     # delete the old key (may not succeed if this is the first time)
     subprocess.call(
         [
             'keytool',
             '-delete',
             '-alias',
-            opt_alias,
+            OPT_ALIAS,
             '-keystore',
-            opt_cacerts,
+            OPT_CACERTS,
             '-storepass',
-            opt_cacerts_pass,
+            OPT_CACERTS_PASS,
         ]
     )
     subprocess.check_call(
@@ -136,14 +136,14 @@ if opt_add_to_cacerts:
             '-importcert',
             '-noprompt',
             '-keystore',
-            opt_cacerts,
+            OPT_CACERTS,
             '-storepass',
-            opt_cacerts_pass,
+            OPT_CACERTS_PASS,
             '-alias',
-            opt_alias,
+            OPT_ALIAS,
             '-file',
-            opt_cer,
+            OPT_CER,
         ],
         stderr=subprocess.DEVNULL, # because keytool is a little noisy
     )
-    print(f'imported the tomcat certificate to [{opt_cacerts}]...')
+    print(f'imported the tomcat certificate to [{OPT_CACERTS}]...')

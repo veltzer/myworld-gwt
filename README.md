@@ -6,5 +6,5 @@ My world system implemented using GWT (Google Web Toolkit).
 
 - `src/` - Java sources for the GWT application.
 - `war/` - the web application root.
-- `build.xml`, `ivy.xml` - Ant build with Ivy dependency management.
+- `pom.xml` - the maven dependency manifest; `rsconstruct build` drives the GWT compile and war packaging through it.
 - `doc/` - deployment notes for Tomcat, links and a TODO list.
