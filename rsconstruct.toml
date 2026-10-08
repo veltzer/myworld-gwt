@@ -49,7 +49,7 @@ src_files = ["README.md"]
 
 # ─── xml / svg ───────────────────────────────────────────────────────────────
 
-[processor.checker.xmllint]
+[processor.checker.ixmllint]
 src_dirs = ["src", "war/WEB-INF"]
 src_files = ["pom.xml"]
 
