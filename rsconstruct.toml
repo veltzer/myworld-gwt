@@ -13,7 +13,7 @@ src_dirs = ["scripts"]
 [processor.checker.pyrefly]
 src_dirs = ["scripts"]
 
-[processor.checker.shellcheck]
+[processor.checker.ishellcheck]
 src_dirs = ["scripts"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
@@ -55,9 +55,8 @@ src_files = ["pom.xml"]
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
-[processor.checker.checkstyle]
+[processor.checker.icheckstyle]
 src_dirs = ["src/org/meta/gwtworld"]
-args = ["-c", "checkstyle.xml"]
 
 # ─── html ────────────────────────────────────────────────────────────────────
 
