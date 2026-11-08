@@ -32,6 +32,9 @@ command = "scripts/mvn_package.py"
 inputs = ["pom.xml"]
 input_globs = ["src/**/*", "war/**/*"]
 output_files = ["target/myworld-gwt-1.0.war"]
+# maven keeps its build state in target/ (classes, the exploded war, gwt's
+# staging and unit cache) and rewrites it on every package
+sandbox_writable = ["target"]
 
 # openjdk-8-jdk-headless is the JVM pom.xml forks the GWT 2.6 compiler on;
 # maven itself runs on the default JDK.
