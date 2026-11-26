@@ -76,7 +76,7 @@ src_files = ["README.md"]
 # warnings fail too, not only fatal errors
 strict = true
 src_dirs = ["src", "war/WEB-INF"]
-src_files = ["pom.xml"]
+src_files = ["checkstyle.xml", "pom.xml"]
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
