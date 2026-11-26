@@ -43,6 +43,10 @@ sandbox_network = true
 [dependencies]
 system = ["maven", "openjdk-8-jdk-headless"]
 
+# lint the Lua configuration with luacheck (policy: .luacheckrc)
+[processor.checker.iluacheck]
+src_dirs = ["config"]
+
 # lint the YAML files with yamllint (policy: .yamllint.yaml)
 [processor.checker.iyamllint]
 src_dirs = [".github"]
