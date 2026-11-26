@@ -95,3 +95,8 @@ src_dirs = ["war"]
 [processor.checker.biome]
 src_dirs = ["war"]
 src_extensions = [".css"]
+
+# every lint suppression names a rule and says why (see the fleet's CLAUDE.md)
+[processor.checker.suppressions]
+src_dirs = [".github", "config", "scripts", "src/org/meta/gwtworld", "war"]
+src_files = [".yamllint.yaml", "README.md"]
