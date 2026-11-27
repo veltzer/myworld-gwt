@@ -16,9 +16,6 @@ References:
 https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html
 '''
 
-###########
-# imports #
-###########
 import os  # for environ, unlink
 import os.path  # for isfile, expanduser, join
 import subprocess  # for check_call
